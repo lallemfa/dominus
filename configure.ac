@@ -21,7 +21,9 @@ AC_CHECK_HEADER(curl/curl.h, [],
 # output files
 AC_CONFIG_FILES([Makefile
                  src/Makefile
-                 src/domoticz/Makefile])
+                 src/domoticz/Makefile
+                 rpi3/Makefile
+                 rpi3/src/Makefile])
 
 AC_OUTPUT
 

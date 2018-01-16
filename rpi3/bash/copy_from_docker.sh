@@ -1,0 +1,1 @@
+sudo docker cp 7994642d1e5d:/usr/build/dominus $HOME/dominus/
