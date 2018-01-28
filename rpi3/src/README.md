@@ -4,7 +4,10 @@
 
 Source code for GPIO control.
 If the GPIO folder does not exist already, will be created.
-Use this way -> ./gpio_set Pin Value
+
+```` bash
+$ ./gpio_set Pin Value
+````
 
 ## server_client.c
 
