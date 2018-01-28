@@ -1,11 +1,6 @@
 # DOMINUS
 
-TO DO
-
-## Src
-
-This folder contains an example for autotools use in the folder domoticz.
-In order to compile it, run:
+In order to compile both src and rpi3 source codes, run:
 
 ```` bash
 $ ./autogen.sh
@@ -13,10 +8,18 @@ $ ./configure
 $ make
 ````
 
+## src
+
+This folder contains an example for autotools use in the folder domoticz.
+
+## rpi3
+
+This folder contains the switch implementation for the project.
+
 
 ## Dockerfile
 
-This file allows you to create an image based on a debian image, and that automatically download and compile the buildroot for the RPi3.
+This directory allows you to create an image based on a debian image, and that automatically download and compile the buildroot for the RPi3.
 
 This image includes :
 * A root session which password is `toor`

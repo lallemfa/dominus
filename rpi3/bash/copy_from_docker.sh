@@ -1,1 +1,2 @@
-sudo docker cp 7994642d1e5d:/usr/build/dominus $HOME/dominus/
+#!/bin/bash
+sudo docker cp $1:/usr/build/dominus $HOME/dominus/
