@@ -1,13 +1,21 @@
 # RPI3 / src
 
-## gpio_set.c
+## domoticz_side.c
 
-Source code for GPIO control.
-If the GPIO folder does not exist already, will be created.
+Will be called via a shell script launched by domoticz.
+Will connect to a distant server mastering a relay and send it one order.
 
-```` bash
-$ ./gpio_set Pin Value
-````
+Not manually used in theory but can be used this way:
+
+''''bash
+$ ./domoticz_side IP Port Message
+''''
+
+## relay_side.c
+
+Will wait for orders from domoticz received through a TCP server.
+Host a server on which domoticz will send the orders.
+Then act on GPIO values.
 
 Can be used either directly with an actuator (but limited on voltage) or with a relay.
 Respect the following connections:
@@ -16,10 +24,8 @@ Respect the following connections:
   <img src="https://github.com/pblottiere/embsys/blob/master/labs/rpi3/imgs/relai.png" width="350" title="Relay coupling">
 </p>
 
-## server_client.c
+Use this way:
 
-TCP client source code which will be used later.
-
-## server_host.c
-
-TCP host source code which will be used later.
+''''bash
+$ ./relay_side pin port
+''''

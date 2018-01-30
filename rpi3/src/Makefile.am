@@ -1,6 +1,9 @@
-MAINTAINERCLEANFILES = Makefile.in
+MAINTAINERCLEANFILES = Makefile.in domoticz_side relay_side
 
-bin_PROGRAMS = gpio_set server_client server_host
-gpio_set_SOURCES = gpio_set.c
-server_client_SOURCES = server_client.c
-server_host_SOURCES = server_host.c
+bin_PROGRAMS = domoticz_side relay_side
+
+domoticz_side_SOURCES = domoticz_side.c
+domoticz_side_LDADD = ../libs/libgpio_set.la ../libs/libserver_client.la
+
+relay_side_SOURCES = relay_side.c
+relay_side_LDADD = ../libs/libgpio_set.la ../libs/libserver_host.la

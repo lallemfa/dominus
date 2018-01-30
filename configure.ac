@@ -23,7 +23,8 @@ AC_CONFIG_FILES([Makefile
                  src/Makefile
                  src/domoticz/Makefile
                  rpi3/Makefile
-                 rpi3/src/Makefile])
+                 rpi3/src/Makefile
+                 rpi3/libs/Makefile])
 
 AC_OUTPUT
 

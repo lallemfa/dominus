@@ -1,14 +1,11 @@
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/socket.h>
 #include <stdio.h>
-#include <stdlib.h> /* pour exit */
-#include <strings.h> /* pour bcopy */
-#include <errno.h>
-#include <netinet/in.h>
-#include <netdb.h>
-#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include <sys/socket.h>
 #include <arpa/inet.h>
+#include <signal.h>
 
 int socket_RV;
 
@@ -19,9 +16,8 @@ void signals_handler(int signal_number)
 	printf("\nClosed cleanly\n");
 }
 
-void listener(char* IP, int port)
+void client(char* IP, int port)
 {
-	//struct hostent *hote;
 	struct sockaddr_in adr;
 
 	if( (socket_RV=socket(AF_INET, SOCK_STREAM, 0)) == -1 )
@@ -34,11 +30,6 @@ void listener(char* IP, int port)
 	adr.sin_family = AF_INET;
 	adr.sin_port = htons(port);
 
-/*
-	hote = gethostbyname(name);
-	bcopy(hote->h_addr, &adr.sin_addr.s_addr, hote->h_length);
-*/
-
 	if ( connect(socket_RV,(struct sockaddr *)&adr, sizeof(adr))==-1 )
 	{
 		perror("Connection failure");
@@ -47,12 +38,13 @@ void listener(char* IP, int port)
 
 }
 
+/*
 int main(int argc, char *argv[]) {
 
 	// Check correct use and update parameters
-    if (argc != 3)
+    if (argc != 4)
     {
-        printf("Listen on a TCP server.\nNeeded 2 arguments but %d given.\nUse this way -> ./listener IP Port\n", argc-1);
+        printf("Listen on a TCP server.\nNeeded 3 arguments but %d given.\nUse this way -> ./listener IP Port Message\n", argc-1);
         return EXIT_FAILURE;
     }
 
@@ -67,19 +59,13 @@ int main(int argc, char *argv[]) {
     // END SIGACTION
 
     // Server client
-    listener(argv[1], atoi(argv[2]));
+    client(argv[1], atoi(argv[2]));
 
-    // Listening
-	char msg;
-
-	do
-	{
-		msg = EOF;
-		read(socket_RV, &msg, 1);
-		putchar(msg);
-	} while (msg!=EOF);
+    // Send message
+	send(socket_RV, argv[3], strlen(argv[3]), 0);
 
 	close(socket_RV);
 
-	return 0;
+	return EXIT_SUCCESS;
 }
+*/

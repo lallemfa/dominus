@@ -39,6 +39,10 @@ scp_docker_rpi3.sh 		-> 	Must be launched from the docker container.
 $ sh scp_docker_rpi3.sh IP password
 ````
 
+## libs
+
+This folder contains severals librairies useful for the project.
+
 ## log
 
 This folder contains one log of interractions. Was used for V1.0.
