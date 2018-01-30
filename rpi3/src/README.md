@@ -7,9 +7,9 @@ Will connect to a distant server mastering a relay and send it one order.
 
 Not manually used in theory but can be used this way:
 
-''''bash
+```` bash
 $ ./domoticz_side IP Port Message
-''''
+````
 
 ## relay_side.c
 
@@ -26,6 +26,6 @@ Respect the following connections:
 
 Use this way:
 
-''''bash
+```` bash
 $ ./relay_side pin port
-''''
+````
