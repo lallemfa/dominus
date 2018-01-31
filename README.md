@@ -15,6 +15,12 @@ This folder contains an example for autotools use in the folder domoticz.
 ## rpi3
 
 This folder contains the switch implementation for the project.
+In order to crosscompile, we used the toolchain generated during the compilation of the environment via buildroot.
+This toolchain is located in /root/buildroot-2017.08/output/host/bin/arm-linux-gcc
+
+In order to run on seperate RPi, look in rpi3/src to find source codes for each side.
+However, it is important to note that since we use a TCP server, each side must be able to see each other.
+Simplest way is to connect both side on the same network.
 
 
 ## Dockerfile
