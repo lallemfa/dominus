@@ -1,2 +1,2 @@
 echo ACTION OFF >> tmp/switch.log
-/home/switch/dominus/app/gpio_set 17 0
+/home/switch/dominus/app/relay_side 17 0
