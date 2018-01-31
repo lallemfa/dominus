@@ -39,6 +39,20 @@ scp_docker_rpi3.sh 		-> 	Must be launched from the docker container.
 $ sh scp_docker_rpi3.sh IP password
 ````
 
+## init
+
+Allow to launch a shell script on boot.
+Adding something on boot is only necessary on relay side.
+Tutorial for adding with priority 50:
+
+````bash
+$ sudo cp relay_init /etc/init.d/
+$ cp /etc/init.d/
+$ sudo chmod 777 relay_init
+$ sudo chown root:root relay_init
+$ sudo update-rc.d relay_init defaults 50
+````
+
 ## libs
 
 This folder contains severals librairies useful for the project.

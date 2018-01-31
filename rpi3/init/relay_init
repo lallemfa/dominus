@@ -1,0 +1,45 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          relay_init
+# Required-Start:    $local_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: relay_init
+# Description:       relay_init
+### END INIT INFO
+
+NAME=relay_init
+PIDFILE=/var/run/$NAME.pid
+DAEMON=/home/switch/dominus/app/$NAME
+
+start() {
+	printf "Starting: "
+    start-stop-daemon -S -q -m -b -p $PIDFILE --exec $DAEMON	
+}
+stop() {
+	printf "Stopping"
+    start-stop-daemon -K -q -p $PIDFILE
+}
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart|reload)
+	restart
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit 0
